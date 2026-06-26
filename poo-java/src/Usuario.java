@@ -1,4 +1,4 @@
-public class Usuario {
+public abstract class Usuario {
 
     private Long id;
     private String nome;
@@ -71,5 +71,9 @@ public class Usuario {
         System.out.println("Email: " + email);
         System.out.println("Senha: " + senha);
     }
+
+    public abstract void fazerLogin();
+
+    public abstract void fazerLogout();
 
 }

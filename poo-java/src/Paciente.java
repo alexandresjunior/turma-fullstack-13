@@ -48,4 +48,14 @@ public class Paciente extends Usuario {
         System.out.println("Eh PCD: " + ehPcd);
     }
 
+    @Override
+    public void fazerLogin() {
+        System.out.println("Paciente fez login no sistema.");
+    }
+
+    @Override
+    public void fazerLogout() {
+        System.out.println("Paciente saiu do sistema.");
+    }
+
 }

@@ -29,4 +29,14 @@ public class Medico extends Usuario {
         this.especialidade = especialidade;
     }
 
+    @Override
+    public void fazerLogin() {
+        System.out.println("Médico fez login com sucesso!");
+    }
+
+    @Override
+    public void fazerLogout() {
+        System.out.println("Médico saiu do sistema.");
+    }
+
 }
