@@ -1,4 +1,4 @@
-public class Paciente extends Usuario {
+public class Paciente extends Usuario implements ConectorBD {
 
     private Double peso;
     private Double altura;
@@ -56,6 +56,36 @@ public class Paciente extends Usuario {
     @Override
     public void fazerLogout() {
         System.out.println("Paciente saiu do sistema.");
+    }
+
+    @Override
+    public void cadastrar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'cadastrar'");
+    }
+
+    @Override
+    public void atualizar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+    }
+
+    @Override
+    public void buscarPeloID() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarPeloID'");
+    }
+
+    @Override
+    public void listar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listar'");
+    }
+
+    @Override
+    public void excluir() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
     }
 
 }

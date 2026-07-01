@@ -1,4 +1,4 @@
-public class Medico extends Usuario {
+public class Medico extends Usuario implements ConectorBD {
 
     private String crm;
     private String especialidade;
@@ -37,6 +37,36 @@ public class Medico extends Usuario {
     @Override
     public void fazerLogout() {
         System.out.println("Médico saiu do sistema.");
+    }
+
+    @Override
+    public void cadastrar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'cadastrar'");
+    }
+
+    @Override
+    public void atualizar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+    }
+
+    @Override
+    public void buscarPeloID() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarPeloID'");
+    }
+
+    @Override
+    public void listar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listar'");
+    }
+
+    @Override
+    public void excluir() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
     }
 
 }
