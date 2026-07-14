@@ -18,6 +18,12 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public DadosRespostaUsuario cadastrar(DadosRequisicaoUsuario dados) {
+        Usuario usuario = usuarioRepository.save(preencherUsuario(dados));
+
+        return converterParaDTO(usuario);
+    }
+
+    private Usuario preencherUsuario(DadosRequisicaoUsuario dados) {
         Usuario usuario = new Usuario();
 
         usuario.setNome(dados.nome());
@@ -27,13 +33,15 @@ public class UsuarioService {
         usuario.setDataNascimento(dados.dataNascimento());
         usuario.setStatus(dados.status());
 
-        usuario = usuarioRepository.save(usuario);
+        return usuario;
+    }
 
-        String cpfFormatado = dados.cpf().substring(0, 3) + ".***.***-**";
+    private DadosRespostaUsuario converterParaDTO(Usuario usuario) {
+        String cpfFormatado = usuario.getCpf().substring(0, 3) + ".***.***-**";
 
-        Period periodo = Period.between(dados.dataNascimento(), LocalDate.now());
+        Period periodo = Period.between(usuario.getDataNascimento(), LocalDate.now());
 
-        DadosRespostaUsuario dto = new DadosRespostaUsuario(
+        return new DadosRespostaUsuario(
             usuario.getId(), 
             usuario.getNome(), 
             usuario.getEmail(), 
@@ -42,8 +50,6 @@ public class UsuarioService {
             usuario.getDataNascimento(), 
             usuario.getStatus()
         );
-
-        return dto;
     }
 
 }
