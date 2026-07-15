@@ -23,6 +23,12 @@ public class UsuarioService {
         return converterParaDTO(usuario);
     }
 
+    public DadosRespostaUsuario buscarPeloId(Long id) {
+        Usuario usuario = usuarioRepository.findById(id).orElse(null);
+
+        return converterParaDTO(usuario);
+    }
+
     private Usuario preencherUsuario(DadosRequisicaoUsuario dados) {
         Usuario usuario = new Usuario();
 
