@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.treina.recife.sgp.api.dto.DadosRequisicaoUsuario;
 import br.com.treina.recife.sgp.api.dto.DadosRespostaUsuario;
+import br.com.treina.recife.sgp.api.model.Usuario;
 import br.com.treina.recife.sgp.api.service.UsuarioService;
 
 @RestController
@@ -20,7 +21,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
     
     @PostMapping
-    public DadosRespostaUsuario cadastrarUsuario(@RequestBody DadosRequisicaoUsuario dados) {
+    public Usuario cadastrarUsuario(@RequestBody Usuario dados) {
         return usuarioService.cadastrar(dados);
     }
 

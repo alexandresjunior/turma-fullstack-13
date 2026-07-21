@@ -23,6 +23,10 @@ public class UsuarioService {
         return converterParaDTO(usuario);
     }
 
+    public Usuario cadastrar(Usuario dados) {
+        return usuarioRepository.save(dados);
+    }
+
     public DadosRespostaUsuario buscarPeloId(Long id) {
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
 
