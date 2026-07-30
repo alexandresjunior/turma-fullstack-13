@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.treina.recife.sgp.api.model.Tarefa;
 import br.com.treina.recife.sgp.api.service.TarefaService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/tarefas")
@@ -26,7 +27,7 @@ public class TarefaController {
     private TarefaService tarefaService;
     
     @PostMapping
-    public ResponseEntity<Tarefa> cadastrarTarefa(@RequestBody Tarefa dados) {
+    public ResponseEntity<Tarefa> cadastrarTarefa(@Valid @RequestBody Tarefa dados) {
         return ResponseEntity.status(HttpStatus.CREATED).body(tarefaService.cadastrar(dados));
     }
 

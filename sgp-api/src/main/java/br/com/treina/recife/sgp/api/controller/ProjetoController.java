@@ -21,6 +21,7 @@ import br.com.treina.recife.sgp.api.dto.DadosRespostaProjeto;
 import br.com.treina.recife.sgp.api.model.Projeto;
 import br.com.treina.recife.sgp.api.model.enums.StatusProjeto;
 import br.com.treina.recife.sgp.api.service.ProjetoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/projetos")
@@ -30,7 +31,7 @@ public class ProjetoController {
     private ProjetoService projetoService;
     
     @PostMapping
-    public ResponseEntity<DadosRespostaProjeto> cadastrarProjeto(@RequestBody DadosRequisicaoProjeto dados) {
+    public ResponseEntity<DadosRespostaProjeto> cadastrarProjeto(@Valid @RequestBody DadosRequisicaoProjeto dados) {
         return ResponseEntity.status(HttpStatus.CREATED).body(projetoService.cadastrar(dados));
     }
 

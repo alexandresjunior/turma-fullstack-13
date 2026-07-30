@@ -2,6 +2,8 @@ package br.com.treina.recife.sgp.api.service;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,14 +25,14 @@ public class UsuarioService {
         return converterParaDTO(usuario);
     }
 
-    public Usuario cadastrar(Usuario dados) {
-        return usuarioRepository.save(dados);
-    }
-
     public DadosRespostaUsuario buscarPeloId(Long id) {
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
 
         return converterParaDTO(usuario);
+    }
+
+    public List<DadosRespostaUsuario> listar() {
+        return usuarioRepository.findAll().stream().map(u -> converterParaDTO(u)).toList();
     }
 
     private Usuario preencherUsuario(DadosRequisicaoUsuario dados) {
