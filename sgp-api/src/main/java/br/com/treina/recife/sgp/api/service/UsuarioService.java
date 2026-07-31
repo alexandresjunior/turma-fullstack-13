@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +29,19 @@ public class UsuarioService {
     public DadosRespostaUsuario buscarPeloId(Long id) {
         Usuario usuario = usuarioRepository.findById(id).orElse(null);
 
-        return converterParaDTO(usuario);
+        if (Objects.nonNull(usuario)) {
+            return converterParaDTO(usuario);
+        }
+
+        return null;
     }
 
     public List<DadosRespostaUsuario> listar() {
         return usuarioRepository.findAll().stream().map(u -> converterParaDTO(u)).toList();
+    }
+
+    public void deletar(Long id) {
+        usuarioRepository.deleteById(id);
     }
 
     private Usuario preencherUsuario(DadosRequisicaoUsuario dados) {

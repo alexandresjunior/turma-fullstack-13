@@ -30,7 +30,7 @@ public class Usuario {
     @Column(nullable = false, length = 150) // NOT NULL VARCHAR(150)
     private String nome;
     
-    @Column(nullable = false, unique = true, length = 11)    // NOT NULL UNIQUE VARCHAR(11)
+    @Column(nullable = false, unique = true, length = 14)    // NOT NULL UNIQUE VARCHAR(14)
     private String cpf;
     
     @Column(nullable = false, unique = true)    // NOT NULL UNIQUE
