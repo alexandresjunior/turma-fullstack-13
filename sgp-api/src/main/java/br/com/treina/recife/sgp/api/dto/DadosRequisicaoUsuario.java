@@ -17,7 +17,7 @@ public record DadosRequisicaoUsuario(
     String email,
     @NotBlank @CPF
     String cpf,
-    @NotBlank
+    @NotBlank(message = "Campo `senha` é obrigatório.")
     String senha,
     LocalDate dataNascimento,
     @NotNull
